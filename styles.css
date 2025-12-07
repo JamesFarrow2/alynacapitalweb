@@ -839,10 +839,12 @@ body {
 }
 
 .highlight {
-    color: #9ec4b3;
-    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.85) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     display: inline-block;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .hero-tagline {
@@ -981,6 +983,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    align-items: center;
+    text-align: center;
 }
 
 .hero-stat-number {
