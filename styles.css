@@ -839,14 +839,10 @@ body {
 }
 
 .highlight {
-    color: #6b9580;
+    color: #9ec4b3;
     position: relative;
     display: inline-block;
     font-weight: 400;
-}
-
-.highlight::after {
-    display: none;
 }
 
 .hero-tagline {
@@ -897,6 +893,15 @@ body {
     gap: 1.5rem;
     flex-wrap: wrap;
     animation: fadeInUp 1s ease 0.9s both;
+    margin-bottom: 1.5rem;
+}
+
+.hero-microcopy {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+    margin-top: 0;
+    animation: fadeInUp 1s ease 1s both;
 }
 
 .btn-primary-filled {
