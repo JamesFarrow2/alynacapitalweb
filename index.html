@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyna Capital - Consultoría Especializada en Fondos Europeos y M&A</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-brand">
+                <img src="Logos/logo02.png" alt="Alyna Capital" class="logo-img">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-item-dropdown">
+                    <a href="#servicios" class="nav-link nav-dropdown-trigger">
+                        Servicios
+                        <svg class="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="ayudas-subvenciones.html" class="nav-dropdown-item">
+                            <span class="dropdown-item-title">Ayudas y Subvenciones</span>
+                            <span class="dropdown-item-desc">Financiación para proyectos estratégicos</span>
+                        </a>
+                        <a href="fusiones-adquisiciones.html" class="nav-dropdown-item">
+                            <span class="dropdown-item-title">Fusiones y Adquisiciones</span>
+                            <span class="dropdown-item-desc">Venta de pequeñas y medianas empresas</span>
+                        </a>
+                    </div>
+                </div>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#casos" class="nav-link">Casos de Éxito</a>
+                <a href="#contacto" class="nav-link nav-link-cta">Contacto</a>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Particles Canvas - Financial Constellation Effect -->
+        <canvas id="particles-hero"></canvas>
+
+        <!-- Architectural geometric structures -->
+        <div class="hero-architecture">
+            <!-- Vertical pillars - like skyscrapers -->
+            <div class="arch-pillar arch-pillar-1"></div>
+            <div class="arch-pillar arch-pillar-2"></div>
+            <div class="arch-pillar arch-pillar-3"></div>
+            <div class="arch-pillar arch-pillar-4"></div>
+
+            <!-- Horizontal lines - like floors/levels -->
+            <div class="arch-line arch-line-1"></div>
+            <div class="arch-line arch-line-2"></div>
+            <div class="arch-line arch-line-3"></div>
+
+            <!-- Rectangular frames - documents/contracts -->
+            <div class="arch-frame arch-frame-1"></div>
+            <div class="arch-frame arch-frame-2"></div>
+            <div class="arch-frame arch-frame-3"></div>
+
+            <!-- SPECTACULAR: Abstract financial sculpture -->
+            <div class="hero-sculpture">
+                <div class="sculpture-ring sculpture-ring-1">
+                    <span class="ring-marker ring-marker-1"></span>
+                    <span class="ring-marker ring-marker-2"></span>
+                    <span class="ring-marker ring-marker-3"></span>
+                    <span class="ring-marker ring-marker-4"></span>
+                </div>
+                <div class="sculpture-ring sculpture-ring-2">
+                    <span class="ring-marker ring-marker-1"></span>
+                    <span class="ring-marker ring-marker-2"></span>
+                    <span class="ring-marker ring-marker-3"></span>
+                </div>
+                <div class="sculpture-ring sculpture-ring-3">
+                    <span class="ring-marker ring-marker-1"></span>
+                    <span class="ring-marker ring-marker-2"></span>
+                </div>
+                <div class="sculpture-core">
+                    <div class="core-pulse"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-hook">Financiación europea · M&A · Desde 2010</div>
+                <h1 class="hero-title">
+                    Conseguimos <span class="highlight">fondos europeos</span><br>
+                    y vendemos tu empresa al mejor postor
+                </h1>
+                <p class="hero-tagline">
+                    Especialistas en obtener financiación no dilutiva de la UE (I+D, digitalización, sostenibilidad) y ejecutar operaciones M&A para PYMEs con facturación de €2M-€100M. 85% de éxito, 15 años de trayectoria.
+                </p>
+                <div class="hero-stats-inline">
+                    <div class="hero-stat-item">
+                        <span class="hero-stat-number" data-target="65" data-prefix="€" data-suffix="M+">€0M+</span>
+                        <span class="hero-stat-text">obtenidos</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="hero-stat-number" data-target="120" data-prefix="+" data-suffix="">+0</span>
+                        <span class="hero-stat-text">proyectos</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="hero-stat-number" data-target="85" data-prefix="" data-suffix="%">0%</span>
+                        <span class="hero-stat-text">éxito</span>
+                    </div>
+                </div>
+                <div class="hero-cta-dual">
+                    <a href="#contacto" class="btn btn-primary btn-primary-filled">
+                        Solicitar consulta
+                    </a>
+                    <a href="#servicios" class="btn btn-primary btn-secondary-outline">
+                        Conocer servicios
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title">¿Alguna de estas situaciones te resulta familiar?</h2>
+            <div class="pain-grid">
+                <div class="pain-card pain-card-fondos">
+                    <span class="pain-emoji">😤</span>
+                    <h3 class="pain-title">"Mi proyecto se ha rechazado dos veces"</h3>
+                    <p class="pain-description">
+                        Y nadie te explica realmente por qué. El problema no es tu proyecto,
+                        es cómo lo presentas. El 73% de rechazos son por errores de forma, no de fondo.
+                    </p>
+                </div>
+
+                <div class="pain-card pain-card-ma">
+                    <span class="pain-emoji">😰</span>
+                    <h3 class="pain-title">"Llevo 18 meses intentando vender mi empresa"</h3>
+                    <p class="pain-description">
+                        Los "interesados" desaparecen. Los brokers cobran y no hacen nada.
+                        El tiempo corre y tu empresa pierde valor cada mes que pasa.
+                    </p>
+                </div>
+
+                <div class="pain-card pain-card-general">
+                    <span class="pain-emoji">🤔</span>
+                    <h3 class="pain-title">"Las consultoras generalistas prometen todo"</h3>
+                    <p class="pain-description">
+                        Dicen que hacen "de todo": fondos, M&A, fiscal, laboral, IT, marketing...
+                        Resultado: mediocridad en todo. Promesas incumplidas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pain-solution">
+                <p>Por eso <strong>no hacemos de todo</strong>. Solo fondos europeos y venta de PYMEs.</p>
+                <p>Nada más. <strong>15 años perfeccionando solo eso.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section (Before/After Cases) -->
+    <section class="transformation">
+        <div class="container">
+            <h2 class="section-title">De "imposible" a "conseguido"</h2>
+            <p class="transformation-intro">
+                Estos proyectos también parecían imposibles. Hasta que no lo fueron.
+            </p>
+
+            <div class="case-carousel">
+                <!-- Case 1: Fondos Municipal -->
+                <div class="case-card">
+                    <div class="case-badge case-badge-fondos">Fondos Europeos</div>
+                    <div class="case-content">
+                        <div class="case-before">
+                            <span class="case-label">ANTES</span>
+                            <p>"Ayuntamiento de 8.000 habitantes. Proyecto de Smart City rechazado 3 veces por 'falta de viabilidad técnica'"</p>
+                        </div>
+                        <div class="case-arrow">→</div>
+                        <div class="case-after">
+                            <span class="case-label">DESPUÉS</span>
+                            <p><strong>€2.4M aprobados</strong> en fondos FEDER. Proyecto implementado en 18 meses.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: M&A PYME Familiar -->
+                <div class="case-card">
+                    <div class="case-badge case-badge-ma">M&A</div>
+                    <div class="case-content">
+                        <div class="case-before">
+                            <span class="case-label">ANTES</span>
+                            <p>"PYME familiar sector logística. 35 años operando. 24 meses buscando comprador sin éxito."</p>
+                        </div>
+                        <div class="case-arrow">→</div>
+                        <div class="case-after">
+                            <span class="case-label">DESPUÉS</span>
+                            <p><strong>Vendida por €8.2M</strong> a grupo nacional. Empleos mantenidos. Fundador jubilado con tranquilidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Fondos Startup -->
+                <div class="case-card">
+                    <div class="case-badge case-badge-fondos">Fondos Europeos</div>
+                    <div class="case-content">
+                        <div class="case-before">
+                            <span class="case-label">ANTES</span>
+                            <p>"Startup tecnológica. Necesitaban €500K para escalar. Rechazados por 4 consultoras: 'muy pequeños'"</p>
+                        </div>
+                        <div class="case-arrow">→</div>
+                        <div class="case-after">
+                            <span class="case-label">DESPUÉS</span>
+                            <p><strong>€680K en ayudas ENISA</strong> + Incentivos regionales. Ahora facturan €3M/año.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transformation-cta">
+                <a href="#casos-exito" class="btn btn-secondary">Ver todos los casos de éxito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method/Differentiation Section -->
+    <section class="method-section">
+        <div class="container">
+            <div class="method-grid">
+                <div class="method-visual">
+                    <div class="method-stat">
+                        <span class="method-stat-number">15</span>
+                        <span class="method-stat-label">años</span>
+                    </div>
+                    <div class="method-stat">
+                        <span class="method-stat-number">2</span>
+                        <span class="method-stat-label">servicios</span>
+                    </div>
+                    <div class="method-stat">
+                        <span class="method-stat-number">85%</span>
+                        <span class="method-stat-label">aprobación</span>
+                    </div>
+                    <div class="method-stat">
+                        <span class="method-stat-number">€65M</span>
+                        <span class="method-stat-label">gestionados</span>
+                    </div>
+                </div>
+
+                <div class="method-content">
+                    <h2 class="section-title">Por qué conseguimos lo que otros no consiguen</h2>
+                    <p class="method-description">
+                        Mientras otras consultoras intentan hacer de todo (fondos, fiscal, laboral, IT, marketing...),
+                        nosotros llevamos <strong>15 años perfeccionando solo dos cosas</strong>:
+                    </p>
+                    <ol class="method-list">
+                        <li>Conseguir fondos europeos para instituciones y empresas</li>
+                        <li>Vender pequeñas y medianas empresas</li>
+                    </ol>
+                    <p class="method-result">
+                        <strong>¿El resultado?</strong> Un 85% de tasa de aprobación en fondos
+                        (vs 27% media nacional) y €65M en operaciones cerradas.
+                    </p>
+                    <div class="method-badge">
+                        🎯 Especialización radical = Resultados excepcionales
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Presence Map Section -->
+    <section class="national-presence">
+        <div class="container">
+            <div class="presence-content">
+                <div class="presence-badge">Presencia Nacional</div>
+                <h2 class="presence-title">Operamos en toda España</h2>
+                <p class="presence-description">
+                    Desde pequeños municipios hasta grandes ciudades. Hemos completado más de 70 proyectos
+                    en todas las provincias de España.
+                </p>
+                <div class="presence-stats">
+                    <div class="presence-stat">
+                        <span class="presence-stat-number">50+</span>
+                        <span class="presence-stat-label">Clientes</span>
+                    </div>
+                    <div class="presence-stat">
+                        <span class="presence-stat-number">70+</span>
+                        <span class="presence-stat-label">Proyectos</span>
+                    </div>
+                    <div class="presence-stat">
+                        <span class="presence-stat-number">17</span>
+                        <span class="presence-stat-label">Comunidades</span>
+                    </div>
+                </div>
+            </div>
+            <div class="presence-map">
+                <div id="spain-interactive-map"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-prop" id="servicios">
+        <div class="container">
+            <div class="section-intro">
+                <h2 class="section-title">No hacemos de todo; hacemos bien dos cosas</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Ayudas y Subvenciones -->
+                <div class="service-card card-fondos">
+                    <div class="card-number">01</div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Ayudas y Subvenciones</h3>
+                    <p class="card-subtitle">Financia tu proyecto</p>
+                    <p class="card-description">
+                        Ayudamos a instituciones públicas y empresas a obtener ayudas y subvenciones para financiar
+                        proyectos estratégicos e innovadores en cualquier municipio o provincia de España.
+                    </p>
+                    <ul class="card-benefits">
+                        <li>FEDER - Fondos Europeos de Desarrollo Regional</li>
+                        <li>ERASMUS+ y programas de movilidad</li>
+                        <li>CREA y fondos culturales</li>
+                        <li>PRTR - Plan de Recuperación</li>
+                        <li>Incentivos regionales y ayudas autonómicas</li>
+                        <li>ENISA y financiación empresarial</li>
+                    </ul>
+                    <a href="ayudas-subvenciones.html" class="card-link">
+                        Conseguir ayudas y subvenciones
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- M&A -->
+                <div class="service-card card-ma">
+                    <div class="card-number">02</div>
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title">Fusiones y Adquisiciones de Empresas</h3>
+                    <p class="card-subtitle">Vende tu empresa</p>
+                    <p class="card-description">
+                        Acompañamos a pequeñas y medianas empresas en procesos de venta, representando al vendedor en toda la operación.
+                    </p>
+                    <ul class="card-benefits">
+                        <li><strong>Fase 1:</strong> Preparación y valoración inicial (Teaser Ciego, valoración)</li>
+                        <li><strong>Fase 2:</strong> Marketing y potenciales compradores (CIM, búsqueda de compradores)</li>
+                        <li><strong>Fase 3:</strong> Negociación, Due Diligence y cierre de la operación</li>
+                    </ul>
+                    <a href="fusiones-adquisiciones.html" class="card-link">
+                        Vender mi empresa
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Image -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Equipo profesional en reunión">
+                    <div class="about-image-overlay"></div>
+                </div>
+                <div class="about-content">
+                    <div class="section-badge">Quiénes Somos</div>
+                    <h2 class="section-title">Expertos en financiación europea y M&A</h2>
+                    <p class="about-text">
+                        En Alyna Capital nos especializamos en dos áreas donde realmente marcamos la diferencia:
+                        ayudamos a instituciones y empresas a acceder a fondos europeos, y acompañamos a PYMEs
+                        en sus procesos de compraventa.
+                    </p>
+                    <p class="about-text">
+                        Con más de 15 años de experiencia, hemos gestionado proyectos en todas las provincias de España,
+                        trabajando codo a codo con administraciones públicas y empresas de entre 5 y 15 millones de facturación.
+                    </p>
+                    <div class="about-stats-mini">
+                        <div class="stat-mini">
+                            <span class="stat-mini-number">150+</span>
+                            <span class="stat-mini-label">Proyectos</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-mini-number">45M€</span>
+                            <span class="stat-mini-label">Gestionados</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-mini-number">98%</span>
+                            <span class="stat-mini-label">Éxito</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="nosotros">
+        <div class="container">
+            <div class="section-intro centered">
+                <h2 class="section-title">Nuestro enfoque</h2>
+                <p class="section-description">Un proceso claro, transparente y orientado a resultados</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Análisis inicial</h4>
+                        <p>Estudiamos tu situación y objetivos para determinar la viabilidad y mejor estrategia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Planificación estratégica</h4>
+                        <p>Diseñamos una hoja de ruta personalizada con hitos claros y medibles.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Ejecución experta</h4>
+                        <p>Gestionamos todo el proceso con atención al detalle y comunicación constante.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>Resultados verificables</h4>
+                        <p>Cerramos con éxito y medimos el impacto real de nuestro trabajo conjunto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="casos">
+        <div class="container">
+            <div class="section-intro centered">
+                <h2 class="section-title">Presencia nacional</h2>
+                <p class="section-description">Hemos trabajado con clientes en toda España, desde grandes ciudades hasta municipios rurales</p>
+            </div>
+            <div class="map-container">
+                <div id="spain-map"></div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot fondos"></span>
+                        <span>Fondos Europeos</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot ma"></span>
+                        <span>M&A</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-badge">Contacto</div>
+                    <h2 class="section-title">¿Listo para dar el siguiente paso?</h2>
+                    <p class="contact-description">
+                        Agenda una consulta inicial sin compromiso. Analizaremos tu situación y te presentaremos
+                        una propuesta personalizada en menos de 24 horas.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>Respuesta en menos de 24h</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Presencia en toda España</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio de interés</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="ayudas">Ayudas y Subvenciones</option>
+                                <option value="ma">M&A - Venta de empresa</option>
+                                <option value="ambos">Ambos servicios</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-full">Enviar consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Qué dicen quienes ya trabajaron con nosotros</h2>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1: Alcalde - Fondos -->
+                <div class="testimonial-card">
+                    <div class="testimonial-badge testimonial-badge-fondos">Fondos FEDER · €2.4M</div>
+                    <p class="testimonial-quote">
+                        "Después de tres rechazos con otras consultoras, Alyna Capital consiguió los €2.4M que necesitábamos
+                        en la primera presentación. La diferencia está en el conocimiento profundo de cada línea de fondos."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JM</div>
+                        <div class="testimonial-info">
+                            <strong>Juan Martínez</strong>
+                            <span>Alcalde, Ayuntamiento de Toledo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2: CEO PYME - M&A -->
+                <div class="testimonial-card">
+                    <div class="testimonial-badge testimonial-badge-ma">Venta Exitosa · €8.2M</div>
+                    <p class="testimonial-quote">
+                        "Llevábamos dos años buscando comprador sin éxito. En 7 meses, Alyna Capital nos presentó 5 compradores
+                        serios y cerramos la operación al 112% de nuestra valoración inicial."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MG</div>
+                        <div class="testimonial-info">
+                            <strong>María García</strong>
+                            <span>Fundadora, Empresa Logística</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3: Director - Fondos ENISA -->
+                <div class="testimonial-card">
+                    <div class="testimonial-badge testimonial-badge-fondos">ENISA · €680K</div>
+                    <p class="testimonial-quote">
+                        "Lo que más valoro es la honestidad. Me dijeron desde el primer día que mi proyecto no era viable para fondos
+                        europeos, pero me redirigieron a ENISA. Resultado: €680K aprobados."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CL</div>
+                        <div class="testimonial-info">
+                            <strong>Carlos López</strong>
+                            <span>CEO, Startup Tecnológica</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Objeciones) -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas frecuentes antes de contactar</h2>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Cuánto cuesta vuestro servicio?</h3>
+                    <p class="faq-answer">
+                        <strong>Fondos:</strong> Éxito condicional (solo cobramos si se aprueba)<br>
+                        <strong>M&A:</strong> Retainer + éxito (detallamos en primera reunión)
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Cuánto tarda el proceso?</h3>
+                    <p class="faq-answer">
+                        <strong>Fondos:</strong> 3-6 meses (depende de convocatoria)<br>
+                        <strong>M&A:</strong> 6-18 meses (depende del mercado)
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Trabajáis con empresas pequeñas?</h3>
+                    <p class="faq-answer">
+                        <strong>Fondos:</strong> Desde proyectos de €50K<br>
+                        <strong>M&A:</strong> Desde €2M de valoración
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Y si mi proyecto se rechaza?</h3>
+                    <p class="faq-answer">
+                        <strong>Fondos:</strong> No cobras nada. Analizamos y replanteamos.<br>
+                        <strong>M&A:</strong> Si no vendemos, no cobramos comisión de éxito.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Por qué solo dos servicios?</h3>
+                    <p class="faq-answer">
+                        15 años de experiencia nos han enseñado que la especialización radical genera resultados excepcionales.
+                        Preferimos ser los mejores en dos cosas que mediocres en diez.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h3 class="faq-question">¿Trabajáis en toda España?</h3>
+                    <p class="faq-answer">
+                        Sí. Hemos completado 70+ proyectos en las 17 comunidades autónomas.
+                        Desde grandes ciudades hasta municipios rurales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA with Urgency -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content">
+                <div class="cta-urgency-badge">⚡ Solo aceptamos 3 nuevos proyectos al mes</div>
+                <h2 class="final-cta-title">¿Hablamos de tu proyecto?</h2>
+                <p class="final-cta-description">
+                    Diagnóstico gratuito de 30 minutos. Sin compromiso.<br>
+                    Te diremos si podemos ayudarte (y si no podemos, también te lo diremos).
+                </p>
+
+                <div class="cta-benefits">
+                    <div class="cta-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>Análisis de viabilidad real</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>Estimación de fondos/valoración</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>Roadmap de siguientes pasos</span>
+                    </div>
+                    <div class="cta-benefit">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        <span>Sin letra pequeña ni sorpresas</span>
+                    </div>
+                </div>
+
+                <div class="final-cta-buttons">
+                    <a href="#contacto" class="btn btn-giant btn-fondos">
+                        📋 Análisis gratuito (Fondos)
+                    </a>
+                    <a href="#contacto" class="btn btn-giant btn-ma">
+                        💼 Valoración gratuita (Venta)
+                    </a>
+                </div>
+
+                <p class="cta-availability">📅 Próximas plazas disponibles: 15 y 22 de febrero</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-brand">ALYNA CAPITAL</h3>
+                    <p class="footer-description">
+                        Consultoría especializada en fondos europeos y operaciones de M&A para instituciones públicas y empresas.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#fondos-europeos">Fondos Europeos</a></li>
+                        <li><a href="#vender-empresa">M&A</a></li>
+                        <li><a href="#casos">Casos de Éxito</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#equipo">Equipo</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacidad">Política de Privacidad</a></li>
+                        <li><a href="#legal">Aviso Legal</a></li>
+                        <li><a href="#cookies">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alyna Capital. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
