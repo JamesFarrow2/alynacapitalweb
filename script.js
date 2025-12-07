@@ -565,8 +565,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ========== HERO SPECTACULAR EFFECTS ==========
 
+// Detección de dispositivos para optimización de rendimiento
+const isMobileDevice = () => window.innerWidth <= 768;
+const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 // 1. Hero Parallax Effect on Scroll
 window.addEventListener('scroll', () => {
+    // Desactivar parallax en dispositivos móviles para mejor rendimiento
+    if (isMobileDevice()) return;
+
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     const heroArchitecture = document.querySelector('.hero-architecture');
@@ -650,54 +657,63 @@ window.addEventListener('load', () => {
 });
 
 // 3. Mouse Move Parallax Effect (sutil)
-document.addEventListener('mousemove', (e) => {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
+// Desactivar en dispositivos táctiles
+if (!isTouchDevice()) {
+    document.addEventListener('mousemove', (e) => {
+        // También desactivar en móviles
+        if (isMobileDevice()) return;
 
-    const heroRect = hero.getBoundingClientRect();
-    if (heroRect.top > window.innerHeight || heroRect.bottom < 0) return;
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
 
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
+        const heroRect = hero.getBoundingClientRect();
+        if (heroRect.top > window.innerHeight || heroRect.bottom < 0) return;
 
-    const heroSculpture = document.querySelector('.hero-sculpture');
-    const pillars = document.querySelectorAll('.arch-pillar');
-    const lines = document.querySelectorAll('.arch-line');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
 
-    // Escultura sigue sutilmente el mouse
-    if (heroSculpture) {
-        const moveX = (mouseX - 0.5) * 15;
-        const moveY = (mouseY - 0.5) * 15;
-        heroSculpture.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
-    }
+        const heroSculpture = document.querySelector('.hero-sculpture');
+        const pillars = document.querySelectorAll('.arch-pillar');
+        const lines = document.querySelectorAll('.arch-line');
 
-    // Pilares se mueven sutilmente
-    pillars.forEach((pillar, index) => {
-        const moveX = (mouseX - 0.5) * (5 + index * 2);
-        pillar.style.transform = `translateX(${moveX}px)`;
+        // Escultura sigue sutilmente el mouse
+        if (heroSculpture) {
+            const moveX = (mouseX - 0.5) * 15;
+            const moveY = (mouseY - 0.5) * 15;
+            heroSculpture.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+        }
+
+        // Pilares se mueven sutilmente
+        pillars.forEach((pillar, index) => {
+            const moveX = (mouseX - 0.5) * (5 + index * 2);
+            pillar.style.transform = `translateX(${moveX}px)`;
+        });
+
+        // Líneas se mueven en dirección opuesta
+        lines.forEach((line, index) => {
+            const moveY = (mouseY - 0.5) * (3 + index * 1.5);
+            line.style.transform = `translateY(${moveY}px)`;
+        });
     });
-
-    // Líneas se mueven en dirección opuesta
-    lines.forEach((line, index) => {
-        const moveY = (mouseY - 0.5) * (3 + index * 1.5);
-        line.style.transform = `translateY(${moveY}px)`;
-    });
-});
+}
 
 // 4. CTA Buttons Magnetic Effect
-document.querySelectorAll('.hero-cta-dual .btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
+// Solo en dispositivos no táctiles
+if (!isTouchDevice()) {
+    document.querySelectorAll('.hero-cta-dual .btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) translateY(-3px)`;
-    });
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px) translateY(-3px)`;
+        });
 
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
     });
-});
+}
 
 // ========== NIVEL 1: MEJORAS VISUALES INMEDIATAS ==========
 
@@ -706,10 +722,17 @@ document.querySelectorAll('.hero-cta-dual .btn').forEach(btn => {
     const canvas = document.getElementById('particles-hero');
     if (!canvas) return;
 
+    // Detectar dispositivos móviles y ajustar rendimiento
+    const isMobile = window.innerWidth <= 768;
+    const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+
+    // No inicializar partículas en móvil (ya se oculta con CSS pero evita procesamiento)
+    if (isMobile) return;
+
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const particleCount = 60; // Cantidad sutil
-    const connectionDistance = 150;
+    const particleCount = isTablet ? 40 : 60; // Menos partículas en tablet
+    const connectionDistance = isTablet ? 120 : 150;
 
     // Configurar canvas
     function resizeCanvas() {

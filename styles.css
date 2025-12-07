@@ -4245,3 +4245,326 @@ body {
         width: 100%;
     }
 }
+
+/* ========================================
+   RESPONSIVE DESIGN - HERO & EFFECTS
+   ======================================== */
+
+/* Large Tablets & Small Desktops (768px - 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 140px 0 100px 0;
+    }
+
+    .hero .container {
+        max-width: 700px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-right: 2rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 4.5vw, 3.5rem);
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .hero-stats-inline {
+        gap: 2rem;
+    }
+
+    .hero-stat-number {
+        font-size: 1.8rem;
+    }
+
+    /* Reducir cantidad de partículas en tablets */
+    #particles-hero {
+        opacity: 0.7;
+    }
+
+    /* Geometrías más sutiles */
+    .arch-pillar {
+        opacity: 0.5;
+    }
+
+    .arch-line {
+        opacity: 0.5;
+    }
+}
+
+/* Tablets (768px - 968px) */
+@media (max-width: 968px) {
+    .hero .container {
+        max-width: 600px;
+        padding: 0 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        letter-spacing: 0;
+    }
+
+    .hero-tagline {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .hero-stats-inline {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .hero-cta-dual {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-cta-dual .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Navbar responsive */
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Landscape & Small Tablets (481px - 768px) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 0 80px 0;
+        min-height: 100vh;
+    }
+
+    .hero .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .hero-stats-inline {
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-stat-number {
+        font-size: 1.6rem;
+    }
+
+    .hero-stat-text {
+        font-size: 0.75rem;
+    }
+
+    .hero-cta-dual {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .hero-cta-dual .btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* Geometrías simplificadas en móvil */
+    .arch-pillar {
+        display: none;
+    }
+
+    .arch-line {
+        opacity: 0.3;
+    }
+
+    .arch-frame {
+        display: none;
+    }
+
+    .hero-sculpture {
+        opacity: 0.15;
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+
+    /* Navbar mobile */
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        display: none; /* Ocultar en móvil - implementar hamburger menu si es necesario */
+    }
+
+    .nav-link-cta {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Partículas desactivadas en móvil para mejor rendimiento */
+    #particles-hero {
+        display: none;
+    }
+}
+
+/* Mobile Portrait (320px - 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 100px 0 60px 0;
+    }
+
+    .hero .container {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+        margin-bottom: 1rem;
+        line-height: 1.25;
+    }
+
+    .hero-tagline {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-stats-inline {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-stat-item {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(107, 149, 128, 0.05);
+        border-radius: 8px;
+    }
+
+    .hero-stat-number {
+        font-size: 1.5rem;
+    }
+
+    .hero-stat-text {
+        font-size: 0.7rem;
+    }
+
+    .hero-cta-dual .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Navbar ultra-compacto */
+    .navbar {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .navbar-logo {
+        font-size: 1.1rem;
+    }
+
+    .nav-link-cta {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Geometrías mínimas */
+    .hero-architecture {
+        opacity: 0.3;
+    }
+
+    .arch-line {
+        display: none;
+    }
+
+    .hero-sculpture {
+        display: none;
+    }
+}
+
+/* Extra Small Devices (< 320px) */
+@media (max-width: 320px) {
+    .hero-title {
+        font-size: 1.4rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.8rem;
+    }
+
+    .hero-cta-dual .btn {
+        font-size: 0.85rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* Large Screens (> 1440px) */
+@media (min-width: 1441px) {
+    .hero .container {
+        max-width: 1100px;
+    }
+
+    .hero-content {
+        max-width: 900px;
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.25rem;
+    }
+
+    .hero-stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ultra Wide Screens (> 1920px) */
+@media (min-width: 1921px) {
+    .hero .container {
+        max-width: 1400px;
+    }
+
+    .hero-content {
+        max-width: 1100px;
+    }
+
+    .hero-title {
+        font-size: 5rem;
+    }
+}
