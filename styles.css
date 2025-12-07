@@ -401,9 +401,9 @@ body {
 }
 
 .hero .container {
-    margin: 0;
-    margin-left: 4rem;
-    max-width: 650px;
+    margin: 0 auto;
+    max-width: 920px;
+    padding: 0 2rem;
 }
 
 /* Architectural Geometry - Institutional Power */
@@ -834,7 +834,7 @@ body {
     line-height: 1.25;
     color: var(--color-text-dark);
     margin-bottom: 2rem;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.02em;
     animation: fadeInUp 1s ease 0.4s both;
 }
 
