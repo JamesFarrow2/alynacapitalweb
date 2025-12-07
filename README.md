@@ -20,7 +20,7 @@ Web institucional de alto impacto visual que transmite profesionalidad, confianz
 - Animaciones de entrada dramáticas al cargar la página
 - Mouse move parallax en elementos geométricos
 - Botones magnéticos con efecto shine
-- Navbar con transición suave al hacer scroll
+- Navbar con transición suave
 
 ### Paleta de Colores
 - **Verde corporativo**: `#6b9580` (sage green elegante)
