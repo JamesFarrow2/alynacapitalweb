@@ -33,6 +33,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ondas-crecimiento.css">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -131,47 +132,39 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Particles Canvas - Financial Constellation Effect -->
-        <canvas id="particles-hero"></canvas>
-
-        <!-- Architectural geometric structures -->
+        <!-- Geometric background: Growth Waves -->
         <div class="hero-architecture">
-            <!-- Vertical pillars - like skyscrapers -->
-            <div class="arch-pillar arch-pillar-1"></div>
-            <div class="arch-pillar arch-pillar-2"></div>
-            <div class="arch-pillar arch-pillar-3"></div>
-            <div class="arch-pillar arch-pillar-4"></div>
+            <!-- ONDAS DE CRECIMIENTO: Flujo de capital + oportunidad -->
 
-            <!-- Horizontal lines - like floors/levels -->
-            <div class="arch-line arch-line-1"></div>
-            <div class="arch-line arch-line-2"></div>
-            <div class="arch-line arch-line-3"></div>
+            <!-- SVG con ondas sinusoidales animadas -->
+            <svg class="growth-waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice">
+                <!-- Onda superior (sutil) -->
+                <path class="wave wave-1" d="M 0 250 Q 175 200, 350 250 T 700 250 T 1050 250 T 1400 250"
+                      fill="none" stroke="rgba(116, 187, 160, 0.12)" stroke-width="2"/>
 
-            <!-- Rectangular frames - documents/contracts -->
-            <div class="arch-frame arch-frame-1"></div>
-            <div class="arch-frame arch-frame-2"></div>
-            <div class="arch-frame arch-frame-3"></div>
+                <!-- Onda media (más prominente) -->
+                <path class="wave wave-2" d="M 0 400 Q 175 350, 350 400 T 700 400 T 1050 400 T 1400 400"
+                      fill="none" stroke="rgba(116, 187, 160, 0.18)" stroke-width="2.5"/>
 
-            <!-- SPECTACULAR: Abstract financial sculpture -->
-            <div class="hero-sculpture">
-                <div class="sculpture-ring sculpture-ring-1">
-                    <span class="ring-marker ring-marker-1"></span>
-                    <span class="ring-marker ring-marker-2"></span>
-                    <span class="ring-marker ring-marker-3"></span>
-                    <span class="ring-marker ring-marker-4"></span>
-                </div>
-                <div class="sculpture-ring sculpture-ring-2">
-                    <span class="ring-marker ring-marker-1"></span>
-                    <span class="ring-marker ring-marker-2"></span>
-                    <span class="ring-marker ring-marker-3"></span>
-                </div>
-                <div class="sculpture-ring sculpture-ring-3">
-                    <span class="ring-marker ring-marker-1"></span>
-                    <span class="ring-marker ring-marker-2"></span>
-                </div>
-                <div class="sculpture-core">
-                    <div class="core-pulse"></div>
-                </div>
+                <!-- Onda inferior (más prominente) -->
+                <path class="wave wave-3" d="M 0 550 Q 175 500, 350 550 T 700 550 T 1050 550 T 1400 550"
+                      fill="none" stroke="rgba(116, 187, 160, 0.15)" stroke-width="2"/>
+
+                <!-- Onda de acento (naranja sutil) -->
+                <path class="wave wave-accent" d="M 0 325 Q 200 290, 400 325 T 800 325 T 1200 325 T 1400 325"
+                      fill="none" stroke="rgba(249, 186, 115, 0.08)" stroke-width="1.5"/>
+            </svg>
+
+            <!-- Partículas que fluyen con las ondas -->
+            <div class="wave-particles">
+                <div class="flow-particle particle-1"></div>
+                <div class="flow-particle particle-2"></div>
+                <div class="flow-particle particle-3"></div>
+                <div class="flow-particle particle-4"></div>
+                <div class="flow-particle particle-5"></div>
+                <div class="flow-particle particle-6"></div>
+                <div class="flow-particle particle-7"></div>
+                <div class="flow-particle particle-8"></div>
             </div>
         </div>
         <div class="container">
@@ -179,8 +172,12 @@
                 <h1 class="hero-title">
                     <span class="highlight">Fondos europeos</span> y <span class="highlight">venta de empresas</span>
                 </h1>
+                <p class="hero-hook">
+                    ¿Necesitas financiación europea para tu proyecto?<br>
+                    ¿Quieres vender tu empresa al mejor precio?
+                </p>
                 <p class="hero-tagline">
-                    Conseguimos ayudas y subvenciones europeas, nacionales y regionales para administraciones públicas y empresas. Vendemos empresas medianas en toda España.
+                    Conseguimos fondos europeos para empresas y administraciones públicas: inversión, I+D, digitalización y sostenibilidad. Vendemos empresas medianas en toda España con máxima discreción y al mejor precio.
                 </p>
                 <div class="hero-stats-inline">
                     <div class="hero-stat-item">
@@ -198,14 +195,15 @@
                 </div>
                 <div class="hero-cta-dual">
                     <a href="#contacto" class="btn btn-primary btn-primary-filled">
-                        Consulta gratuita
+                        <span class="btn-text">Solicitar consulta gratuita</span>
+                        <span class="btn-icon">→</span>
                     </a>
                     <a href="#servicios" class="btn btn-primary btn-secondary-outline">
-                        Ver servicios
+                        <span class="btn-text">Ver cómo trabajamos</span>
                     </a>
                 </div>
                 <p class="hero-microcopy">
-                    Primera reunión sin compromiso · Respuesta en 24-48 horas
+                    ✓ Primera reunión sin compromiso · ✓ Respuesta en 24-48h · ✓ Confidencialidad garantizada
                 </p>
             </div>
         </div>
@@ -214,12 +212,12 @@
         </div>
     </section>
 
-    <!-- Pain Points Section -->
-    <!-- Value Proposition -->
+    <!-- Services Section -->
     <section class="value-prop" id="servicios">
         <div class="container">
             <div class="section-intro">
-                <h2 class="section-title">No hacemos de todo; hacemos bien dos cosas</h2>
+                <h2 class="section-title">Nuestros servicios</h2>
+                <p class="section-subtitle">Dos líneas de negocio especializadas con resultados demostrables</p>
             </div>
 
             <div class="services-grid">
@@ -232,22 +230,21 @@
                             <path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
-                    <h3 class="card-title">Ayudas y Subvenciones</h3>
-                    <p class="card-subtitle">Financia tu proyecto</p>
+                    <h3 class="card-title">Fondos Europeos y Subvenciones</h3>
+                    <p class="card-subtitle">Financiación no dilutiva para empresas y administraciones públicas</p>
                     <p class="card-description">
-                        Ayudamos a instituciones públicas y empresas a obtener ayudas y subvenciones para financiar
-                        proyectos estratégicos e innovadores en cualquier municipio o provincia de España.
+                        Gestionamos la obtención de fondos europeos y subvenciones públicas para proyectos de inversión, I+D, digitalización y sostenibilidad. Trabajamos con empresas privadas y administraciones públicas en toda España.
                     </p>
                     <ul class="card-benefits">
-                        <li>FEDER - Fondos Europeos de Desarrollo Regional</li>
-                        <li>ERASMUS+ y programas de movilidad</li>
-                        <li>CREA y fondos culturales</li>
-                        <li>PRTR - Plan de Recuperación</li>
-                        <li>Incentivos regionales y ayudas autonómicas</li>
-                        <li>ENISA y financiación empresarial</li>
+                        <li>Fondos FEDER y programas europeos de desarrollo</li>
+                        <li>Plan de Recuperación, Transformación y Resiliencia (PRTR)</li>
+                        <li>Programas de I+D+i (CDTI, Horizonte Europa)</li>
+                        <li>Digitalización y transformación tecnológica</li>
+                        <li>Incentivos regionales y autonómicos</li>
+                        <li>Financiación empresarial (ENISA, ICO)</li>
                     </ul>
                     <a href="ayudas-subvenciones.html" class="card-link">
-                        Conseguir ayudas y subvenciones
+                        Explorar opciones de financiación
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
@@ -264,18 +261,18 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"/>
                         </svg>
                     </div>
-                    <h3 class="card-title">Fusiones y Adquisiciones de Empresas</h3>
-                    <p class="card-subtitle">Vende tu empresa</p>
+                    <h3 class="card-title">Fusiones y Adquisiciones (M&A)</h3>
+                    <p class="card-subtitle">Venta de empresas medianas con máxima discreción</p>
                     <p class="card-description">
-                        Acompañamos a pequeñas y medianas empresas en procesos de venta, representando al vendedor en toda la operación.
+                        Asesoramos a empresarios en procesos de venta de empresas medianas en toda España. Representamos exclusivamente al vendedor, garantizando la máxima confidencialidad y el mejor precio de venta.
                     </p>
                     <ul class="card-benefits">
-                        <li><strong>Fase 1:</strong> Preparación y valoración inicial (Teaser Ciego, valoración)</li>
-                        <li><strong>Fase 2:</strong> Marketing y potenciales compradores (CIM, búsqueda de compradores)</li>
-                        <li><strong>Fase 3:</strong> Negociación, Due Diligence y cierre de la operación</li>
+                        <li><strong>Preparación:</strong> Valoración, due diligence del vendedor y teaser confidencial</li>
+                        <li><strong>Marketing:</strong> Identificación y contacto con compradores potenciales cualificados</li>
+                        <li><strong>Negociación:</strong> Gestión de ofertas, due diligence del comprador y cierre</li>
                     </ul>
                     <a href="fusiones-adquisiciones.html" class="card-link">
-                        Vender mi empresa
+                        Explorar proceso de venta
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
@@ -286,38 +283,96 @@
     </section>
 
     <!-- About Section with Image -->
-    <section class="about-section">
+    <section class="about-section" id="nosotros">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Equipo profesional en reunión">
-                    <div class="about-image-overlay"></div>
+                <!-- Imagen Principal -->
+                <div class="about-image-wrapper">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=1200&q=80" alt="Edificios modernos representando crecimiento empresarial">
+                        <div class="about-image-overlay"></div>
+                    </div>
+                    <!-- Stats flotantes sobre imagen -->
+                    <div class="about-floating-stat">
+                        <div class="floating-stat-number">15+</div>
+                        <div class="floating-stat-label">Años de experiencia</div>
+                    </div>
                 </div>
+
+                <!-- Contenido -->
                 <div class="about-content">
                     <div class="section-badge">Quiénes Somos</div>
                     <h2 class="section-title">Expertos en financiación europea y M&A</h2>
-                    <p class="about-text">
+
+                    <p class="about-text-lead">
                         En Alyna Capital nos especializamos en dos áreas donde realmente marcamos la diferencia:
-                        ayudamos a instituciones y empresas a acceder a fondos europeos, y acompañamos a PYMEs
-                        en sus procesos de compraventa.
+                        <strong>fondos europeos</strong> y <strong>compraventa de empresas</strong>.
                     </p>
+
                     <p class="about-text">
-                        Con más de 15 años de experiencia, hemos gestionado proyectos en todas las provincias de España,
-                        trabajando codo a codo con administraciones públicas y empresas de entre 5 y 15 millones de facturación.
+                        Hemos gestionado más de <strong>45M€ en proyectos</strong> para administraciones públicas y PYMEs,
+                        trabajando en todas las provincias de España con empresas de entre 1 y 20 millones de facturación.
                     </p>
-                    <div class="about-stats-mini">
-                        <div class="stat-mini">
-                            <span class="stat-mini-number">150+</span>
-                            <span class="stat-mini-label">Proyectos</span>
+
+                    <!-- Valores/Pilares con iconos -->
+                    <div class="about-pillars">
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="pillar-title">Conocimiento especializado</h3>
+                            <p class="pillar-desc">Dominio profundo de fondos europeos y procesos M&A</p>
                         </div>
-                        <div class="stat-mini">
-                            <span class="stat-mini-number">45M€</span>
-                            <span class="stat-mini-label">Gestionados</span>
+
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3 class="pillar-title">Acompañamiento cercano</h3>
+                            <p class="pillar-desc">Guiamos cada paso del proceso hasta conseguir resultados</p>
                         </div>
-                        <div class="stat-mini">
-                            <span class="stat-mini-number">98%</span>
-                            <span class="stat-mini-label">Éxito</span>
+
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <h3 class="pillar-title">Resultados probados</h3>
+                            <p class="pillar-desc">65 proyectos exitosos</p>
                         </div>
+                    </div>
+
+                    <!-- Stats inline finales -->
+                    <div class="about-stats-inline">
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">45M€</span>
+                            <span class="about-stat-label">Fondos gestionados</span>
+                        </div>
+                        <div class="about-stat-divider"></div>
+                        <div class="about-stat-item">
+                            <span class="about-stat-number">+65</span>
+                            <span class="about-stat-label">Proyectos completados</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="about-cta">
+                        <a href="#contacto" class="btn btn-primary btn-about-cta">
+                            Hablemos de tu proyecto
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -325,41 +380,99 @@
     </section>
 
     <!-- Process Section -->
-    <section class="process" id="nosotros">
+    <section class="process-section" id="proceso">
         <div class="container">
+            <!-- Header -->
             <div class="section-intro centered">
-                <h2 class="section-title">Nuestro enfoque</h2>
-                <p class="section-description">Un proceso claro, transparente y orientado a resultados</p>
+                <div class="section-badge">Nuestro método de trabajo</div>
+                <h2 class="section-title">Un proceso único para cada proyecto</h2>
+                <p class="section-description">
+                    Un proceso único que aplicamos tanto en operaciones de venta de empresas como en proyectos
+                    de financiación pública y consultoría estratégica.
+                </p>
             </div>
 
-            <div class="process-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Análisis inicial</h4>
-                        <p>Estudiamos tu situación y objetivos para determinar la viabilidad y mejor estrategia.</p>
+            <!-- Process Cards -->
+            <div class="process-grid">
+                <!-- Paso 1 -->
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
                     </div>
+                    <h3 class="process-title">Comprender</h3>
+                    <p class="process-subtitle">Comprender el proyecto y su viabilidad</p>
+                    <p class="process-description">
+                        Analizamos el contexto, los objetivos y los requisitos técnicos o financieros.
+                    </p>
+                    <ul class="process-details">
+                        <li><strong>Venta de empresas:</strong> motivación de la venta y cifras clave.</li>
+                        <li><strong>Ayudas / consultoría:</strong> madurez del proyecto, elegibilidad, normativa y plazos.</li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Planificación estratégica</h4>
-                        <p>Diseñamos una hoja de ruta personalizada con hitos claros y medibles.</p>
+
+                <!-- Paso 2 -->
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10"/>
+                            <line x1="12" y1="20" x2="12" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="14"/>
+                        </svg>
                     </div>
+                    <h3 class="process-title">Diseñar el enfoque</h3>
+                    <p class="process-subtitle">Analizar y diseñar el enfoque adecuado</p>
+                    <p class="process-description">
+                        Definimos modelos, escenarios y un plan de actuación claro.
+                    </p>
+                    <ul class="process-details">
+                        <li><strong>Venta de empresas:</strong> valoración, escenarios de precio/estructura y documentación para la venta.</li>
+                        <li><strong>Ayudas / consultoría:</strong> adaptamos el proyecto a la convocatoria, hacemos el modelo económico-financiero y técnico, y desarrollamos la memoria técnica.</li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Ejecución experta</h4>
-                        <p>Gestionamos todo el proceso con atención al detalle y comunicación constante.</p>
+
+                <!-- Paso 3 -->
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                        </svg>
                     </div>
+                    <h3 class="process-title">Ejecutar con rigor</h3>
+                    <p class="process-subtitle">Ejecutar con rigor y acompañamiento directo</p>
+                    <p class="process-description">
+                        Preparamos la documentación y coordinamos a las partes implicadas.
+                    </p>
+                    <ul class="process-details">
+                        <li><strong>Venta de empresas:</strong> documentación, data room y contacto con inversores/compradores.</li>
+                        <li><strong>Ayudas / consultoría:</strong> expedientes, tramitación y subsanaciones.</li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h4>Resultados verificables</h4>
-                        <p>Cerramos con éxito y medimos el impacto real de nuestro trabajo conjunto.</p>
+
+                <!-- Paso 4 -->
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
                     </div>
+                    <h3 class="process-title">Cerrar con seguridad</h3>
+                    <p class="process-subtitle">Validar, cerrar y acompañar hasta el final</p>
+                    <p class="process-description">
+                        Acompañamos las fases finales para asegurar un cierre ordenado y seguro.
+                    </p>
+                    <ul class="process-details">
+                        <li><strong>Venta de empresas:</strong> negociación de precio y contractual, firma y cierre de la operación.</li>
+                        <li><strong>Ayudas / consultoría:</strong> resolución y, si aplica, justificación y auditoría.</li>
+                    </ul>
                 </div>
             </div>
         </div>

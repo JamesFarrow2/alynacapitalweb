@@ -2,18 +2,46 @@
 const mobileToggle = document.getElementById('mobileToggle');
 const navMenu = document.getElementById('navMenu');
 
-mobileToggle.addEventListener('click', () => {
-    mobileToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
-});
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) &&
+            !mobileToggle.contains(e.target)) {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close mobile menu when clicking on a nav link (not dropdown trigger)
+    document.querySelectorAll('.nav-link:not(.nav-dropdown-trigger)').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Mobile dropdown toggle
+    const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
+    dropdownTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            // En móvil, prevenir la navegación y toggle el dropdown
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const dropdown = trigger.closest('.nav-item-dropdown');
+                dropdown.classList.toggle('active');
+            }
+        });
+    });
+}
 
 // Navbar scroll effect - Add 'scrolled' class for transparency effect
 let lastScroll = 0;
@@ -717,100 +745,12 @@ if (!isTouchDevice()) {
 
 // ========== NIVEL 1: MEJORAS VISUALES INMEDIATAS ==========
 
-// 1. PARTÍCULAS FLOTANTES - Financial Constellation Effect
-(function initParticles() {
-    const canvas = document.getElementById('particles-hero');
-    if (!canvas) return;
-
-    // Detectar dispositivos móviles y ajustar rendimiento
-    const isMobile = window.innerWidth <= 768;
-    const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
-
-    // No inicializar partículas en móvil (ya se oculta con CSS pero evita procesamiento)
-    if (isMobile) return;
-
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const particleCount = isTablet ? 40 : 60; // Menos partículas en tablet
-    const connectionDistance = isTablet ? 120 : 150;
-
-    // Configurar canvas
-    function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Clase Partícula
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.3; // Velocidad lenta
-            this.vy = (Math.random() - 0.5) * 0.3;
-            this.radius = Math.random() * 1.5 + 0.5; // Puntos tiny
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            // Rebotar en bordes
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)'; // Blanco sutil
-            ctx.fill();
-        }
-    }
-
-    // Crear partículas
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    // Dibujar conexiones entre partículas cercanas
-    function drawConnections() {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < connectionDistance) {
-                    const opacity = (1 - distance / connectionDistance) * 0.3;
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(107, 149, 128, ${opacity})`; // Verde corporativo
-                    ctx.lineWidth = 0.5;
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-
-    // Animación
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-
-        drawConnections();
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-})();
+// 1. PARTÍCULAS FLOTANTES - Desactivadas (solo pilares arquitectónicos)
+// (function initParticles() {
+//     const canvas = document.getElementById('particles-hero');
+//     if (!canvas) return;
+//     // ... código comentado
+// })();
 
 // 2. CONTADORES ANIMADOS - Stats Impact
 (function initCounters() {
@@ -855,4 +795,62 @@ if (!isTouchDevice()) {
     if (statsContainer) {
         observer.observe(statsContainer);
     }
+})();
+
+// ========== SERVICE CARDS MOUSE TRACKING EFFECT ==========
+// Efecto de brillo que sigue el cursor en las tarjetas de servicio
+(function initCardMouseTracking() {
+    const cards = document.querySelectorAll('.service-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--mouse-x', '50%');
+            card.style.setProperty('--mouse-y', '50%');
+        });
+    });
+})();
+
+// ========== BUTTON RIPPLE EFFECT ==========
+// Efecto ripple al hacer clic en botones CTA
+(function initButtonRipple() {
+    const buttons = document.querySelectorAll('.btn-primary-filled, .btn-secondary-outline, .nav-link-cta');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Crear elemento ripple
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+
+            // Obtener posición del clic relativa al botón
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Posicionar el ripple
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            // Tamaño del ripple (proporcional al botón)
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = size + 'px';
+            ripple.style.height = size + 'px';
+
+            // Añadir al botón
+            this.appendChild(ripple);
+
+            // Remover después de la animación
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
 })();
