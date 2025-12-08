@@ -854,3 +854,168 @@ if (!isTouchDevice()) {
         });
     });
 })();
+
+// ========================================
+// MAPA LEAFLET - TRACK RECORD
+// ========================================
+
+(function() {
+    'use strict';
+
+    const mapElement = document.getElementById('spain-map');
+
+    if (!mapElement || typeof L === 'undefined') {
+        return;
+    }
+
+    // Inicializar mapa centrado en España
+    const map = L.map('spain-map', {
+        center: [40.4637, -3.7492],
+        zoom: 6,
+        minZoom: 5,
+        maxZoom: 10,
+        scrollWheelZoom: true
+    });
+
+    // Añadir tiles
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Verificar que existan los datos
+    if (typeof projectsData === 'undefined') {
+        console.warn('map-data.js no está cargado');
+        return;
+    }
+
+    // Añadir marcadores
+    projectsData.forEach(project => {
+        // Convertir coordenadas ficticias a lat/lng reales (aproximado)
+        const lat = project.location === 'Madrid' ? 40.4168 :
+                    project.location === 'Barcelona' ? 41.3851 :
+                    project.location === 'Jaén' ? 37.7796 :
+                    project.location === 'Valencia' ? 39.4699 :
+                    project.location === 'Sevilla' ? 37.3891 :
+                    project.location === 'Zaragoza' ? 41.6488 :
+                    project.location === 'Málaga' ? 36.7213 :
+                    project.location === 'Bilbao' ? 43.2630 :
+                    project.location === 'Valladolid' ? 41.6523 :
+                    project.location === 'A Coruña' ? 43.3623 :
+                    project.location === 'Murcia' ? 37.9922 :
+                    project.location === 'Salamanca' ? 40.9701 :
+                    project.location === 'Toledo' ? 39.8628 :
+                    project.location === 'Burgos' ? 42.3439 :
+                    project.location === 'Granada' ? 37.1773 :
+                    project.location === 'Lleida' ? 41.6176 :
+                    project.location === 'Tarragona' ? 41.1189 :
+                    project.location === 'Terrassa' ? 41.5644 :
+                    project.location === 'Badajoz' ? 38.8794 :
+                    project.location === 'Zamora' ? 41.5034 :
+                    project.location === 'León' ? 42.5987 :
+                    project.location === 'Palencia' ? 42.0096 :
+                    project.location === 'Ávila' ? 40.6566 :
+                    project.location === 'Segovia' ? 40.9429 :
+                    project.location === 'Soria' ? 41.7665 :
+                    project.location === 'Logroño' ? 42.4627 :
+                    project.location === 'Huelva' ? 37.2614 :
+                    project.location === 'Cartagena' ? 37.6256 :
+                    project.location === 'Gijón' ? 43.5322 :
+                    project.location === 'Santander' ? 43.4623 :
+                    project.location === 'San Sebastián' ? 43.3183 :
+                    project.location === 'Pamplona' ? 42.8125 :
+                    project.location === 'Vitoria-Gasteiz' ? 42.8467 :
+                    project.location === 'Calatayud' ? 41.3525 :
+                    project.location === 'Miranda de Ebro' ? 42.6867 :
+                    project.location === 'Alfafar' ? 39.4207 :
+                    project.location === 'Majadahonda' ? 40.4731 :
+                    project.location === 'Motril' ? 36.7492 :
+                    project.location === 'Oleiros' ? 43.3341 :
+                    project.location === 'Villaviciosa' ? 43.4829 :
+                    project.location === 'La Rinconada' ? 37.4832 :
+                    project.location === 'Marbella' ? 36.5099 :
+                    project.location === 'Ibiza' ? 38.9067 :
+                    project.location === 'Benidorm' ? 38.5363 :
+                    40.4637;
+
+        const lng = project.location === 'Madrid' ? -3.7038 :
+                    project.location === 'Barcelona' ? 2.1734 :
+                    project.location === 'Jaén' ? -3.7850 :
+                    project.location === 'Valencia' ? -0.3763 :
+                    project.location === 'Sevilla' ? -5.9845 :
+                    project.location === 'Zaragoza' ? -0.8891 :
+                    project.location === 'Málaga' ? -4.4214 :
+                    project.location === 'Bilbao' ? -2.9349 :
+                    project.location === 'Valladolid' ? -4.7245 :
+                    project.location === 'A Coruña' ? -8.4115 :
+                    project.location === 'Murcia' ? -1.1307 :
+                    project.location === 'Salamanca' ? -5.6635 :
+                    project.location === 'Toledo' ? -4.0273 :
+                    project.location === 'Burgos' ? -3.6969 :
+                    project.location === 'Granada' ? -3.5986 :
+                    project.location === 'Lleida' ? 0.6200 :
+                    project.location === 'Tarragona' ? 1.2445 :
+                    project.location === 'Terrassa' ? 2.0106 :
+                    project.location === 'Badajoz' ? -6.9707 :
+                    project.location === 'Zamora' ? -5.7446 :
+                    project.location === 'León' ? -5.5671 :
+                    project.location === 'Palencia' ? -4.5271 :
+                    project.location === 'Ávila' ? -4.7015 :
+                    project.location === 'Segovia' ? -4.1088 :
+                    project.location === 'Soria' ? -2.4787 :
+                    project.location === 'Logroño' ? -2.4450 :
+                    project.location === 'Huelva' ? -6.9447 :
+                    project.location === 'Cartagena' ? -0.9950 :
+                    project.location === 'Gijón' ? -5.6615 :
+                    project.location === 'Santander' ? -3.8100 :
+                    project.location === 'San Sebastián' ? -1.9812 :
+                    project.location === 'Pamplona' ? -1.6459 :
+                    project.location === 'Vitoria-Gasteiz' ? -2.6714 :
+                    project.location === 'Calatayud' ? -1.6422 :
+                    project.location === 'Miranda de Ebro' ? -2.9468 :
+                    project.location === 'Alfafar' ? -0.3882 :
+                    project.location === 'Majadahonda' ? -3.8732 :
+                    project.location === 'Motril' ? -3.5172 :
+                    project.location === 'Oleiros' ? -8.3163 :
+                    project.location === 'Villaviciosa' ? -5.4304 :
+                    project.location === 'La Rinconada' ? -5.9736 :
+                    project.location === 'Marbella' ? -4.8834 :
+                    project.location === 'Ibiza' ? 1.4207 :
+                    project.location === 'Benidorm' ? -0.1311 :
+                    -3.7492;
+
+        // Color según tipo
+        const markerColor = project.type === 'ayudas' ? '#74bba0' : '#f9ba73';
+
+        // Crear marcador
+        const marker = L.circleMarker([lat, lng], {
+            radius: 8,
+            fillColor: markerColor,
+            color: '#fff',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.8
+        }).addTo(map);
+
+        // Popup con info
+        const popupContent = `
+            <div style="min-width: 200px;">
+                <h4 style="margin: 0 0 8px 0; color: #3c3c3b; font-size: 1rem;">${project.client}</h4>
+                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: 0.85rem;">
+                    <strong>${project.location}</strong>, ${project.province}
+                </p>
+                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: 0.85rem;">
+                    ${project.description}
+                </p>
+                ${project.amount > 0 ? `
+                <p style="margin: 8px 0 0 0; font-size: 1.1rem; font-weight: 700; color: ${markerColor};">
+                    ${formatAmount(project.amount)}
+                </p>
+                ` : ''}
+            </div>
+        `;
+
+        marker.bindPopup(popupContent);
+    });
+})();

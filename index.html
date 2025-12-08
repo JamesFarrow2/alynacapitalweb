@@ -181,16 +181,15 @@
                 </p>
                 <div class="hero-stats-inline">
                     <div class="hero-stat-item">
-                        <span class="hero-stat-number" data-target="45" data-prefix="+" data-suffix="M€">+0M€</span>
-                        <span class="hero-stat-text">obtenidos</span>
+                        <span class="hero-stat-text">Presencia en toda España</span>
                     </div>
+                    <div class="hero-stat-divider">•</div>
                     <div class="hero-stat-item">
-                        <span class="hero-stat-number" data-target="65" data-prefix="+" data-suffix="">+0</span>
-                        <span class="hero-stat-text">proyectos</span>
+                        <span class="hero-stat-text">Experiencia consolidada</span>
                     </div>
+                    <div class="hero-stat-divider">•</div>
                     <div class="hero-stat-item">
-                        <span class="hero-stat-number" data-target="2" data-prefix="" data-suffix="">0</span>
-                        <span class="hero-stat-text">servicios</span>
+                        <span class="hero-stat-text">Dos líneas de negocio</span>
                     </div>
                 </div>
                 <div class="hero-cta-dual">
@@ -289,13 +288,12 @@
                 <!-- Imagen Principal -->
                 <div class="about-image-wrapper">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=1200&q=80" alt="Edificios modernos representando crecimiento empresarial">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80" alt="Oficina profesional moderna">
                         <div class="about-image-overlay"></div>
-                    </div>
-                    <!-- Stats flotantes sobre imagen -->
-                    <div class="about-floating-stat">
-                        <div class="floating-stat-number">15+</div>
-                        <div class="floating-stat-label">Años de experiencia</div>
+                        <div class="about-quote-box">
+                            <div class="quote-icon">"</div>
+                            <p class="quote-text">La excelencia no es fruto de un solo acto, es la consecuencia de un gran hábito.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -482,19 +480,20 @@
     <section class="map-section" id="casos">
         <div class="container">
             <div class="section-intro centered">
+                <div class="section-badge">Track Record</div>
                 <h2 class="section-title">Presencia nacional</h2>
-                <p class="section-description">Hemos trabajado con clientes en toda España, desde grandes ciudades hasta municipios rurales</p>
+                <p class="section-description">Más de 65 proyectos en toda España en ayudas europeas y venta de empresas</p>
             </div>
             <div class="map-container">
                 <div id="spain-map"></div>
                 <div class="map-legend">
                     <div class="legend-item">
                         <span class="legend-dot fondos"></span>
-                        <span>Fondos Europeos</span>
+                        <span>Ayudas y subvenciones</span>
                     </div>
                     <div class="legend-item">
                         <span class="legend-dot ma"></span>
-                        <span>M&A</span>
+                        <span>Compraventa de empresas</span>
                     </div>
                 </div>
             </div>
@@ -517,7 +516,7 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
-                            <span>Respuesta en menos de 24h</span>
+                            <a href="tel:+34630844308" class="contact-link">+34 630 844 308</a>
                         </div>
                         <div class="contact-item">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -532,28 +531,29 @@
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Nombre completo</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" placeholder="Ej: María García López" required>
+                            <small class="form-hint">Solicitamos tu nombre para dirigirnos a ti personalmente</small>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" placeholder="Ej: maria.garcia@empresa.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Ej: +34 612 345 678" required>
                         </div>
                         <div class="form-group">
                             <label for="service">Servicio de interés</label>
                             <select id="service" name="service" required>
                                 <option value="">Selecciona una opción</option>
                                 <option value="ayudas">Ayudas y Subvenciones</option>
-                                <option value="ma">M&A - Venta de empresa</option>
+                                <option value="ma">Compraventa de empresas</option>
                                 <option value="ambos">Ambos servicios</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Mensaje</label>
-                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <textarea id="message" name="message" rows="4" placeholder="Ej: Somos una empresa industrial de Valladolid y queremos solicitar ayudas para un proyecto de digitalización..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-large btn-full">Enviar consulta</button>
                     </form>
@@ -604,6 +604,7 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

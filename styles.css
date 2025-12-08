@@ -121,26 +121,30 @@ body {
 
 .navbar.scrolled .nav-link {
     color: #3c3c3b;
-    opacity: 0.75;
+    opacity: 0.85;
+    font-weight: 500;
 }
 
 .navbar.scrolled .nav-link:hover {
-    color: #3c3c3b;
+    color: #74bba0;
     opacity: 1;
 }
 
 .navbar.scrolled .nav-link-cta {
-    background: linear-gradient(135deg, #3a3f47 0%, #2d3238 100%);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.9);
+    background: #3c3c3b;
+    border: 1px solid rgba(60, 60, 59, 0.8);
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .navbar.scrolled .nav-link-cta:hover {
-    background: linear-gradient(135deg, #7ba897 0%, #6a9280 100%);
-    border-color: rgba(123, 168, 151, 0.5);
+    background: #2d2d2c;
+    border-color: rgba(116, 187, 160, 0.5);
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(107, 149, 128, 0.35);
+    box-shadow:
+        0 8px 24px rgba(60, 60, 59, 0.4),
+        0 0 30px rgba(116, 187, 160, 0.25);
 }
 
 .logo-img {
@@ -288,15 +292,7 @@ body {
     width: 100%;
 }
 
-.navbar.scrolled .nav-link {
-    color: #3c3c3b;
-    opacity: 0.75;
-}
-
-.navbar.scrolled .nav-link:hover {
-    color: #4a6b5a;
-    opacity: 1;
-}
+/* Duplicado eliminado - ver línea 122 */
 
 .nav-link-cta {
     padding: 0.6rem 1.5rem;
@@ -1102,37 +1098,34 @@ body {
 
 .hero-stats-inline {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     margin: 3rem 0 2.5rem 0;
     padding: 0;
     border: none;
     justify-content: center;
+    align-items: center;
     animation: fadeInUp 1s ease 0.9s both;
 }
 
 .hero-stat-item {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
     align-items: center;
     text-align: center;
 }
 
-.hero-stat-number {
-    font-size: 2.75rem;
-    font-weight: 200;
-    color: #e8e8e7;
-    line-height: 1;
-    letter-spacing: -0.03em;
+.hero-stat-divider {
+    font-size: 1.2rem;
+    color: rgba(232, 235, 233, 0.3);
+    font-weight: 300;
 }
 
 .hero-stat-text {
-    font-size: 0.7rem;
-    color: rgba(232, 235, 233, 0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
+    font-size: 0.9rem;
+    color: rgba(232, 235, 233, 0.75);
+    text-transform: none;
+    letter-spacing: 0.02em;
     font-weight: 400;
-    margin-top: 0.75rem;
+    line-height: 1.4;
 }
 
 .hero-cta {
@@ -1456,9 +1449,12 @@ body {
     }
 
     .hero-stats-inline {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: flex-start;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-stat-divider {
+        display: none;
     }
 }
 
@@ -2712,6 +2708,17 @@ body {
     flex-shrink: 0;
 }
 
+.contact-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--color-turquoise);
+}
+
 /* Contact Form */
 .contact-form-wrapper {
     background: var(--color-bg);
@@ -2763,6 +2770,22 @@ body {
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+/* Placeholder styling - más discreto */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(60, 60, 59, 0.35);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: rgba(60, 60, 59, 0.6);
+    font-style: italic;
+    margin-top: -0.25rem;
+    line-height: 1.4;
 }
 
 .btn-full {
@@ -3142,6 +3165,62 @@ body {
     );
 }
 
+/* Caja de cita sobre imagen */
+.about-quote-box {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    max-width: 400px;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.75) 100%
+    );
+    backdrop-filter: blur(12px);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-left: 3px solid rgba(116, 187, 160, 0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-quote-box:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.8) 100%
+    );
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.quote-icon {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    color: rgba(116, 187, 160, 0.35);
+    line-height: 1;
+    margin-bottom: -0.75rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.quote-text {
+    font-family: var(--font-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #2d2d2c;
+    font-style: italic;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
 /* Stat flotante sobre imagen */
 .about-floating-stat {
     position: absolute;
@@ -3288,6 +3367,7 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
+    text-align: center;
 }
 
 .about-stat-number {
@@ -3395,11 +3475,7 @@ body {
 .map-section {
     padding: var(--spacing-xl) 0;
     position: relative;
-    background: linear-gradient(135deg,
-        rgba(35, 40, 40, 0.92) 0%,
-        rgba(45, 55, 52, 0.94) 50%,
-        rgba(55, 80, 70, 0.90) 100%
-    );
+    background: linear-gradient(135deg, #1f2d28 0%, #263530 100%);
     overflow: hidden;
 }
 
@@ -3646,6 +3722,22 @@ body {
 
     .about-image {
         height: 100%;
+    }
+
+    .about-quote-box {
+        bottom: 15px;
+        left: 15px;
+        max-width: 320px;
+        padding: 1rem 1.25rem;
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+        margin-bottom: -0.5rem;
+    }
+
+    .quote-text {
+        font-size: 0.85rem;
     }
 
     .about-floating-stat {
@@ -4946,10 +5038,6 @@ body {
         gap: 2rem;
     }
 
-    .hero-stat-number {
-        font-size: 1.8rem;
-    }
-
     /* Reducir cantidad de partículas en tablets */
     #particles-hero {
         opacity: 0.7;
@@ -5049,16 +5137,17 @@ body {
 
     .hero-stats-inline {
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1rem;
         margin-bottom: 2rem;
-    }
-
-    .hero-stat-number {
-        font-size: 1.6rem;
+        flex-wrap: wrap;
     }
 
     .hero-stat-text {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-stat-divider {
+        display: none;
     }
 
     .hero-cta-dual {
@@ -5151,24 +5240,17 @@ body {
     }
 
     .hero-stats-inline {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 0.8rem;
         margin-bottom: 1.5rem;
-    }
-
-    .hero-stat-item {
-        width: 100%;
-        padding: 0.8rem;
-        background: rgba(107, 149, 128, 0.05);
-        border-radius: 8px;
-    }
-
-    .hero-stat-number {
-        font-size: 1.5rem;
+        flex-wrap: wrap;
     }
 
     .hero-stat-text {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .hero-stat-divider {
+        display: none;
     }
 
     .hero-cta-dual .btn {
@@ -5488,12 +5570,12 @@ body {
         flex: 0 1 auto !important;
     }
 
-    .hero-stat-number {
-        font-size: 2rem !important;
+    .hero-stat-text {
+        font-size: 0.85rem !important;
     }
 
-    .hero-stat-text {
-        font-size: 0.7rem !important;
+    .hero-stat-divider {
+        font-size: 1rem !important;
     }
 
     .hero-cta-dual {
@@ -5559,12 +5641,12 @@ body {
         margin: 1.5rem 0 !important;
     }
 
-    .hero-stat-number {
-        font-size: 1.75rem !important;
+    .hero-stat-text {
+        font-size: 0.75rem !important;
     }
 
-    .hero-stat-text {
-        font-size: 0.65rem !important;
+    .hero-stat-divider {
+        display: none !important;
     }
 
     .hero-cta-dual .btn {
@@ -5584,6 +5666,23 @@ body {
 
     .about-image-wrapper {
         height: 350px !important;
+    }
+
+    .about-quote-box {
+        bottom: 12px !important;
+        left: 12px !important;
+        max-width: 280px !important;
+        padding: 0.9rem 1.1rem !important;
+    }
+
+    .quote-icon {
+        font-size: 1.8rem !important;
+        margin-bottom: -0.4rem !important;
+    }
+
+    .quote-text {
+        font-size: 0.8rem !important;
+        line-height: 1.45 !important;
     }
 
     .about-floating-stat {
