@@ -874,7 +874,9 @@ if (!isTouchDevice()) {
         zoom: 6,
         minZoom: 5,
         maxZoom: 10,
-        scrollWheelZoom: true
+        scrollWheelZoom: true,
+        tap: true,
+        tapTolerance: 15
     });
 
     // Añadir tiles
@@ -988,9 +990,10 @@ if (!isTouchDevice()) {
         // Color según tipo
         const markerColor = project.type === 'ayudas' ? '#74bba0' : '#f9ba73';
 
-        // Crear marcador
+        // Crear marcador más grande para móvil
+        const isMobile = window.innerWidth <= 768;
         const marker = L.circleMarker([lat, lng], {
-            radius: 8,
+            radius: isMobile ? 10 : 8,
             fillColor: markerColor,
             color: '#fff',
             weight: 2,
@@ -998,24 +1001,43 @@ if (!isTouchDevice()) {
             fillOpacity: 0.8
         }).addTo(map);
 
-        // Popup con info
+        // Popup con info - optimizado para móvil
         const popupContent = `
-            <div style="min-width: 200px;">
-                <h4 style="margin: 0 0 8px 0; color: #3c3c3b; font-size: 1rem;">${project.client}</h4>
-                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: 0.85rem;">
+            <div style="min-width: ${isMobile ? '250px' : '200px'}; max-width: 300px;">
+                <h4 style="margin: 0 0 8px 0; color: #3c3c3b; font-size: ${isMobile ? '1.1rem' : '1rem'};">${project.client}</h4>
+                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: ${isMobile ? '0.9rem' : '0.85rem'};">
                     <strong>${project.location}</strong>, ${project.province}
                 </p>
-                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: 0.85rem;">
+                <p style="margin: 4px 0; color: rgba(60,60,59,0.7); font-size: ${isMobile ? '0.9rem' : '0.85rem'};">
                     ${project.description}
                 </p>
                 ${project.amount > 0 ? `
-                <p style="margin: 8px 0 0 0; font-size: 1.1rem; font-weight: 700; color: ${markerColor};">
+                <p style="margin: 8px 0 0 0; font-size: ${isMobile ? '1.2rem' : '1.1rem'}; font-weight: 700; color: ${markerColor};">
                     ${formatAmount(project.amount)}
                 </p>
                 ` : ''}
             </div>
         `;
 
-        marker.bindPopup(popupContent);
+        marker.bindPopup(popupContent, {
+            closeButton: true,
+            autoClose: true,
+            closeOnClick: false,
+            className: 'custom-popup',
+            maxWidth: isMobile ? 280 : 300,
+            minWidth: isMobile ? 250 : 200
+        });
+
+        // En móvil, abrir popup al tocar
+        if (isMobile) {
+            marker.on('click', function() {
+                this.openPopup();
+            });
+        }
     });
+
+    // Ajustar zoom inicial en móvil
+    if (window.innerWidth <= 768) {
+        map.setView([40.4637, -3.7492], 5);
+    }
 })();
