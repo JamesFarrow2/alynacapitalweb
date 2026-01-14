@@ -2155,11 +2155,11 @@ body {
 
 .card-ma {
     background: linear-gradient(135deg,
-        rgba(238, 112, 106, 0.08) 0%,
-        rgba(229, 91, 84, 0.12) 100%),
+        rgba(100, 150, 200, 0.08) 0%,
+        rgba(120, 170, 220, 0.12) 100%),
         #ffffff;
     color: #3c3c3b;
-    border: 1px solid rgba(238, 112, 106, 0.2);
+    border: 1px solid rgba(100, 150, 200, 0.2);
 }
 
 /* Borde de color en la parte superior */
@@ -2179,7 +2179,7 @@ body {
 }
 
 .card-ma::before {
-    background: linear-gradient(90deg, #ee706a 0%, #e55b54 100%);
+    background: linear-gradient(90deg, #6496c8 0%, #78aadc 100%);
 }
 
 /* Overlay de brillo en hover */
@@ -2204,27 +2204,34 @@ body {
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-12px) scale(1.02);
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.12),
-        0 8px 20px rgba(0, 0, 0, 0.08);
+        0 25px 60px rgba(0, 0, 0, 0.15),
+        0 12px 30px rgba(0, 0, 0, 0.12),
+        0 0 40px rgba(116, 187, 160, 0.15);
 }
 
 /* Hover con color más intenso */
 .card-fondos:hover {
     background: linear-gradient(135deg,
-        rgba(116, 187, 160, 0.12) 0%,
-        rgba(95, 169, 138, 0.16) 100%),
+        rgba(116, 187, 160, 0.18) 0%,
+        rgba(95, 169, 138, 0.22) 100%),
         #ffffff;
-    border-color: rgba(116, 187, 160, 0.35);
+    border-color: rgba(116, 187, 160, 0.5);
+    box-shadow:
+        0 25px 60px rgba(116, 187, 160, 0.25),
+        0 12px 30px rgba(116, 187, 160, 0.15);
 }
 
 .card-ma:hover {
     background: linear-gradient(135deg,
-        rgba(238, 112, 106, 0.12) 0%,
-        rgba(229, 91, 84, 0.16) 100%),
+        rgba(100, 150, 200, 0.18) 0%,
+        rgba(120, 170, 220, 0.25) 100%),
         #ffffff;
-    border-color: rgba(238, 112, 106, 0.35);
+    border-color: rgba(100, 150, 200, 0.5);
+    box-shadow:
+        0 25px 60px rgba(100, 150, 200, 0.25),
+        0 12px 30px rgba(100, 150, 200, 0.15);
 }
 
 /* Hover effects ya definidos en las secciones principales */
@@ -2246,7 +2253,7 @@ body {
 }
 
 .card-ma .card-number {
-    color: rgba(238, 112, 106, 0.08);
+    color: rgba(100, 150, 200, 0.08);
 }
 
 .service-card:hover .card-number {
@@ -2258,7 +2265,7 @@ body {
 }
 
 .card-ma:hover .card-number {
-    color: rgba(238, 112, 106, 0.12);
+    color: rgba(100, 150, 200, 0.12);
 }
 
 .card-icon {
@@ -2273,7 +2280,7 @@ body {
 }
 
 .card-ma .card-icon {
-    color: #ee706a;
+    color: #6496c8;
 }
 
 .service-card:hover .card-icon {
@@ -2310,7 +2317,7 @@ body {
 }
 
 .card-ma .card-subtitle {
-    color: #e55b54;
+    color: #6496c8;
 }
 
 .card-description {
@@ -2364,7 +2371,7 @@ body {
 }
 
 .card-ma .card-benefits li::before {
-    color: #ee706a;
+    color: #6496c8;
 }
 
 .service-card:hover .card-benefits li::before {
@@ -2427,9 +2434,9 @@ body {
 }
 
 .card-ma .card-link {
-    background: #ee706a;
+    background: #6496c8;
     color: #ffffff;
-    border: 1px solid #ee706a;
+    border: 1px solid #6496c8;
 }
 
 .card-link svg {
@@ -2446,10 +2453,10 @@ body {
 }
 
 .card-ma .card-link:hover {
-    background: #e55b54;
-    border-color: #e55b54;
+    background: #5580b0;
+    border-color: #5580b0;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(238, 112, 106, 0.3);
+    box-shadow: 0 4px 12px rgba(100, 150, 200, 0.35);
 }
 
 .card-link:hover svg {
@@ -3685,7 +3692,7 @@ body {
         0 10px 40px rgba(0, 0, 0, 0.08),
         0 2px 8px rgba(116, 187, 160, 0.1);
     border: 1px solid rgba(116, 187, 160, 0.15);
-    background: var(--color-white);
+    background: linear-gradient(145deg, #080d12 0%, #0f1820 30%, #162838 60%, #0a1218 100%);
 }
 
 .map-container::before {
